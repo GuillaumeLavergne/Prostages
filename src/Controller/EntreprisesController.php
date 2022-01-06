@@ -11,10 +11,15 @@ class EntreprisesController extends AbstractController
     /**
      * @Route("/entreprises", name="entreprises")
      */
+
     public function index(): Response
     {
+        //$repositoryEntreprise=$this->getDoctrine()->getRepository(Entreprise::class);
+        //$entreprises=$repositoryEntreprise->fing($id);
+
         return $this->render('entreprises/index.html.twig', [
             'controller_name' => 'EntreprisesController',
         ]);
+        //,['entreprises -> $entreprises']
     }
 }
