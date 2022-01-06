@@ -9,15 +9,14 @@
 
 {% for stage in stages %}
 <div>
-    <p>
-        Nom : {{stage.Titre}}
-    </p>
-    <p>
-    Mission : {{stage.Mission}}
-    </p>
-    <p>
-    Email de l'entreprise : {{stage.Email}}
-    </p>
+    <p><u>Titre :</u> {{stage.Titre}}</p>
+    <p><u>Description :</u> {{stage.Mission}}</p>
+    <p><u>Email de l'entreprise :</u> {{stage.Email}}</p>
+    <p><u>Entreprise proposant le stage :</u> {{entreprises.Nom}}</p>
+    <p><u>Formations autorisées pour le stage :</u></p>
+    {% for formation in formations %}
+        <p>{{formation.NomLong}}({{formation.NomCourt}})</p>
+    {% endfor %}
 </div>
 {% endfor %}
 {% endblock %}
