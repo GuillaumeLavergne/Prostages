@@ -21,6 +21,10 @@ class AppFixtures extends Fixture
 
         $formations=array();//liste compléte des formations
 
+        $f1 = array("Enseignement","Diplome","Institut","Brevet","Universite","Doctorat","Master","Prepa");
+        $f2 = array("Universitaire","Technologique","Scientifique","Professionel");
+        $f3 = array("Programmtion","Developpement web","Conception orientée objets","Design","Stastiques informatiques","Management","Developpement android");
+
         $DUT = new Formation();//on créer le DUT
         $DUT->setNomCourt("DUT");
         $DUT->setNomLong("Diplome Univeristaire de Technologie");
@@ -31,13 +35,17 @@ class AppFixtures extends Fixture
 
         for($i=0;$i<15;$i++)//on génére aléatoirement des formations
         {   
-            $A=$faker->word();
-            $B=$faker->word();
-            $C=$faker->word();
+            $Mot1=$f1[$faker->numberBetween(0,count($f1)-1)];
+            $Mot2=$f2[$faker->numberBetween(0,count($f2)-1)];
+            $Mot3=$f3[$faker->numberBetween(0,count($f3)-1)];
+            
+            $Lettre1=str_split($Mot1);
+            $Lettre2=str_split($Mot2);
+            $Lettre3=str_split($Mot3);
 
             $formation= new Formation();
-            $formation->setNomCourt(strtoupper($A[0]).strtoupper($B[0]).strtoupper($C[0]));
-            $formation->setNomLong($A." ".$B." ".$C);
+            $formation->setNomCourt($Lettre1[0].$Lettre2[0].$Lettre3[0]);
+            $formation->setNomLong($Mot1." ".$Mot2." de ".$Mot3);
 
             array_push($formations,$formation);
 
@@ -96,7 +104,7 @@ class AppFixtures extends Fixture
             $titreStage=$metierStage." en ".$languageStage;
 
             $stage->setTitre($titreStage);
-            $stage->setMission($titreStage." sur le logiciel ".$logiciel[$faker->numberBetween(0,count($logiciel)-1)]." sous ".$plateforme[$faker->numberBetween(0,count($plateforme)-1)].", pour une durée de ".$faker->numberBetween(0,12)." ".$periode[$faker->numberBetween(0,count($periode)-1)]);
+            $stage->setMission($titreStage." sur le logiciel ".$logiciel[$faker->numberBetween(0,count($logiciel)-1)]." sous ".$plateforme[$faker->numberBetween(1,count($plateforme)-1)].", pour une durée de ".$faker->numberBetween(0,12)." ".$periode[$faker->numberBetween(0,count($periode)-1)]);
             $stage->setEmail($faker->email());
 
             $stage->setEntreprise($entreprises[$faker->numberBetween(0,count($entreprises)-1)]);
