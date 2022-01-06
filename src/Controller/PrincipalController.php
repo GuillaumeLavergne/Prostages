@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Stage;
 
 class PrincipalController extends AbstractController
 {
@@ -13,8 +14,8 @@ class PrincipalController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('principal/index.html.twig', [
-            'controller_name' => 'PrincipalController',
-        ]);
+        $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
+        $stages=$repositoryStage->findAll();
+        return $this->render('principal/index.html.twig',['stages' => $stages]);
     }
 }

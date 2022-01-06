@@ -7,7 +7,30 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Bienvenue sur la page d'accueil de Prostages</h1>
-</div>
+    <div>
+        <h1> Liste de toutes les stages  : </h1>
+    </div>
+
+
+    <div>
+
+    <table width=100%  style="text-align:left">
+    <tbody align=center>
+    {% for stage in stages %}
+        <tr style="border:1px">
+            <td>
+                Titre : {{stage.titre}}
+            </td>
+            <td>
+                Proposé par : {{stage.entreprise.nom}} 
+            </td>
+            <td>
+                <a href="http://127.0.0.1:8000/"> <span> filtrer !  </span>  </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+    </div>
 {% endblock %}
