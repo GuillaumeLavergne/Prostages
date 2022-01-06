@@ -1,22 +1,41 @@
+
 {% extends 'temp.html.twig' %}
 
+    {% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div>
+        <h1> Liste de toutes les entreprises  : </h1>
+    </div>
 
-<div>
 
-{%
-    for($entreprise in $entreprises)
-    {
-        echo $entreprise->getId();
-    }
-%}
+    <div>
 
-</div>
+    <table width=100%  style="text-align:left">
+    <tbody align=center>
+    {% for entreprise in entreprises %}
+        <tr style="border:1px">
+            <td>
+                Nom : {{entreprise.nom}}
+            </td>
+            <td>
+                Adresse : {{entreprise.adresse}} 
+            </td>
+            <td>
+                Activite : {{entreprise.activite}}
+            </td>
+            <td>
+                <a href="http://127.0.0.1:8000/stages"> <span> filtrer !  </span>  </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 
-{% endblock %}
+    </div>
+
+    {% endblock %}
 

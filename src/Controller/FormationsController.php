@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\formations;
 
 class FormationsController extends AbstractController
 {
@@ -13,8 +14,8 @@ class FormationsController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('formations/index.html.twig', [
-            'controller_name' => 'FormationsController',
-        ]);
+        $repositoryFormations=$this->getDoctrine()->getRepository(Formation::class);
+        $formations=$repositoryFormations->findAll();
+        return $this->render('formations/index.html.twig', ['formations' => $formations]);
     }
 }
