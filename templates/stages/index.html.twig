@@ -7,7 +7,19 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{id}}</h1>
+{% for stage in stages %}
+<div>
+    <p>
+        Nom : {{stage.Titre}}
+    </p>
+    <p>
+    Mission : {{stage.Mission}}
+    </p>
+    <p>
+    Email de l'entreprise : {{stage.Email}}
+    </p>
 </div>
+{% endfor %}
 {% endblock %}
+
+
