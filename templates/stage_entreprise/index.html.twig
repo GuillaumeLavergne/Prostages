@@ -1,0 +1,31 @@
+{% extends 'temp.html.twig' %}
+
+{% block title %}
+<h1> Liste des stages proposés par l'entreprise : {{entreprise.Nom}} </h1>
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<table width=100% tyle="text-align:left">
+<tbody align=center>
+{% for stage in entreprise.stages %}
+    <tr>
+         <td width=33%>
+            {{stage.titre}}
+        </td>
+        <td width=33%>
+            {{stage.entreprise.nom}} 
+        </td>
+        <td width=33%>
+            <a href="http://127.0.0.1:8000/stages/{{stage.id}}" > <span> en savoir plus !  </span>  </a>
+        </td>
+        </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
