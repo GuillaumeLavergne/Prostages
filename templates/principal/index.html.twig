@@ -11,21 +11,22 @@
         <h1 style="border-bottom:2px dashed black"> Liste de toutes les stages  : </h1>
     </div>
 
-    <table width=100% tyle="text-align:left">
-    <tbody align=center>
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+
     {% for stage in stages %}
-        <tr>
-            <td width=33%>
-                {{stage.titre}}
-            </td>
-            <td width=33%>
-                {{stage.entreprise.nom}} 
-            </td>
-            <td width=33%>
-                <a href="http://127.0.0.1:8000/stages/{{stage.id}}" > <span> en savoir plus !  </span>  </a>
-            </td>
-        </tr>
+
+    <div class="col">
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">{{stage.titre}}</div>
+                <div class="card-body text-secondary">
+                    <p class="card-text">Stage proposé par l'entreprise : {{stage.entreprise.nom}}</p>
+                    <a href="http://127.0.0.1:8000/stages/{{stage.id}}" class="btn btn-primary">en savoir plus !</a>
+                </div>
+        </div>
+    </div>
+
     {% endfor %}
-    </tbody>
-    </table>
+
+    </div>
+    
 {% endblock %}

@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   
     {% block menu %}
-    <table width=100% Border="1" style="text-align:left; background-color: #d7d9f2">
-    <tbody align=center>
-        <tr>
-            <td width=33%>
-                <a href="http://127.0.0.1:8000/formations"> <span> choisir formation </span>  </a>
-            </td>
-            <td width=33%>
-                <a href="http://127.0.0.1:8000/entreprises"> <span> choisir entreprise </span> </a>
-            </td>
-            <td width=33%>
-                <a href="http://127.0.0.1:8000/principal"> <span> acceuil      </span> </a>
-            </td>
-        </tr>
-    </tbody>
-    </table>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+            <a class="navbar-brand">Prostage</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="responsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/principal">Liste des stages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/entreprises">Liste des entreprises</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/formations">Liste des formations</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     {% endblock %}
 
     {% block title %} 
@@ -29,4 +45,6 @@
     {% block footer %}
 
     {% endblock %}
+
+    </body>
 </html>
