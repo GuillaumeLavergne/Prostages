@@ -10,12 +10,16 @@
 {% for stage in stages %}
 </br>
     <div class="container-fluid bg-grey border border-dark" align=center>
-        <p style="font-weight:bolder;font-size:large">{{stage.Titre}}</p>
-        <p><u>Description :</u> {{stage.Mission}}</p>
-        <p><u>Email de l'entreprise :</u> {{stage.Email}}</p>
-        <p><u>Entreprise proposant le stage :</u> <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprises.id}}" >{{entreprises.nom}}</a>
+
+        <p style="font-weight:bolder;font-size:40px;border: 1px grey solid;background-color:silver">{{stage.Titre}}</p>
+
+        <p><u style="font-size:18px">Description :</u> {{stage.Mission}}</p>
+        <p><u style="font-size:18px">Email de l'entreprise :</u> {{stage.Email}}</p>
+        <p><u style="font-size:18px">Entreprise proposant le stage :</u > <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprises.id}}" >{{entreprises.nom}}</a>
+
     <p><p>
-        <p><u>Formations autorisées pour le stage :</u></p>
+
+        <p><u style="font-size:18px">Formations autorisées pour le stage :</u></p>
         
         {% for formation in formations %}
             {{formation.nomLong}} <a href="http://127.0.0.1:8000/stage/formation/{{formation.id}}" >( {{formation.nomCourt}} )</a>
