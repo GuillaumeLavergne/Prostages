@@ -16,21 +16,25 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<table width=100%  style="text-align:left">
-<tbody align=center>
-
 {% for formation in formations %}
-    <tr>
-        <td>
-            Nom court : {{formation.nomCourt}}
-        </td>
-        <td>
-            Nom long : {{formation.nomLong}}
-        </td>
-        <td>
-                <a href="http://127.0.0.1:8000/stage/formation/{{formation.id}}"> <span> filtrer !  </span>  </a>
-        </td>
-    <tr>
+    <div class="container-sm bg-grey border border-dark" >
+            <table width=100%  style="text-align:right">
+            <tbody>
+                <tr>
+                    <td align=center>
+                        <p>
+                            <div style="font-weight:bolder;font-size:large"> {{formation.nomLong}} </div>
+                            ( {{formation.nomCourt}} )
+                        </p>
+                    </td>
+                    <td align=right>
+                        <a href="http://127.0.0.1:8000/stage/formation/{{formation.id}}" >Filtrer !</a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <br>
 {% endfor %}
 
 {% endblock %}
