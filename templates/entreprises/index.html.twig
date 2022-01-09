@@ -17,30 +17,36 @@
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
 
-    <div>
+ 
 
-    <table width=100%  style="text-align:left">
-    <tbody align=center>
     {% for entreprise in entreprises %}
-        <tr style="border:1px">
-            <td>
-                Nom : {{entreprise.nom}}
-            </td>
-            <td>
-                Adresse : {{entreprise.adresse}} 
-            </td>
-            <td>
-                Activite : {{entreprise.activite}}
-            </td>
-            <td>
-                <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprise.id}}"> <span> filtrer !  </span>  </a>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
+        <div class="container-sm bg-grey border border-dark" >
+            <table width=100%  style="text-align:right">
+            <tbody>
+                <tr>
+                    <td align=center>
+                        <p style="font-weight:bolder;font-size:large">
+                            {{entreprise.nom}}
+                        </p>
+                        <p>
+                            <u>Adresse :</u> {{entreprise.adresse}}
+                        </p>
+                        <p>
+                            <u>Activite :</u> {{entreprise.activite}}
+                        </p>
+                    </td>
+                    <td align=right>
+                        <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprise.id}}" >Filtrer !</a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        </p><p>
 
-    </div>
+    {% endfor %}
+
+ 
 
 {% endblock %}
 
