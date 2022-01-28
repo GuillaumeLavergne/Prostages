@@ -17,5 +17,6 @@ class PrincipalController extends AbstractController
         $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
         $stages=$repositoryStage->findAll();
         return $this->render('principal/index.html.twig',['stages' => $stages]);
+
     }
 }

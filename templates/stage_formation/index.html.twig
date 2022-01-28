@@ -2,7 +2,7 @@
 
 {% block title %}
     <div class="jumbotron">
-        <h1 class="display-4">Liste des stages proposant la formation  {{formation.nomLong}}!</h1>
+        <h1 class="display-4">Liste des stages proposant la formation  {{nomFormation}}!</h1>
             <p class="lead">Trouvez le stage idéal proposé a votre formation .</p>
         <hr class="my-4">
             <p>N'eshitez pas a cliquer sur le bouton "en savoir plus ! " pour obtenir plus d'information.</p>
@@ -18,7 +18,7 @@
 
 <div class="row row-cols-1 row-cols-md-5 g-4">
 
-{% for stage in formation.stage %}
+{% for stage in stages %}
     <div class="col">
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">{{stage.titre}}</div>

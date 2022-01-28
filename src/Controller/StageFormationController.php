@@ -12,18 +12,19 @@ use App\Entity\Formation;
 class StageFormationController extends AbstractController
 {
     /**
-     * @Route("/stage/formation/{id}", name="stage_formation")
+     * @Route("/stage/formation/{nom}", name="stage_formation")
      */
 
-    public function index($id): Response
+    public function index($nom): Response
     {
         //faire le repository des formations
-        $repositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
+        $repositoryStage=$this->getDoctrine()->getRepository(Stage::class);
 
         //recuperer la formations
-        $formation=$repositoryFormation->find($id);
+        $nomFormation=$nom;
 
+        $stages=$repositoryStage->findStagesByFormation($nomFormation);
         //retourner les valeurs
-        return $this->render('stage_formation/index.html.twig', ['formation'=>$formation]);
+        return $this->render('stage_formation/index.html.twig', ['stages'=>$stages,'nomFormation'=>$nomFormation]);
     }
 }
