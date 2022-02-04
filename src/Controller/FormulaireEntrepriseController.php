@@ -25,10 +25,10 @@ class FormulaireEntrepriseController extends AbstractController
         $entreprise = new Entreprise();
 
         $formulaireEntreprise= $this->createFormBuilder($entreprise)
-        ->add('nom', TextareaType::class)
-        ->add('adresse', TextareaType::class)
-        ->add('url', UrlType::class)
-        ->add('activite', TextareaType::class)
+        ->add('nom')
+        ->add('adresse')
+        ->add('url')
+        ->add('activite')
         ->getForm();
 
         $vueFormulaireEntreprise=$formulaireEntreprise->createView();
