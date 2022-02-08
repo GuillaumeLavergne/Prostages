@@ -17,15 +17,14 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Formation;
 use App\Entity\Entreprise;
 
-class FormulaireEntrepriseController extends AbstractController
+class ModifEntrepriseController extends AbstractController
 {
     /**
-     * @Route("/ajoutEntreprise", name="ajoutEntreprise")
+     * @Route("/modifEntreprise/{id}", name="modifEntreprise")
      */
 
-    public function index(Request $request, ObjectManager $manager): Response
+    public function index(Request $request, ObjectManager $manager, Entreprise $entreprise): Response
     {
-
         $formulaireEntreprise= $this->createFormBuilder($entreprise)
         ->add('nom')
         ->add('adresse')
@@ -40,11 +39,11 @@ class FormulaireEntrepriseController extends AbstractController
             $manager->persist($entreprise);
             $manager->flush();
 
-            return $this -> redirectToRoute('ajoutEntreprise');
+            return $this -> redirectToRoute('modifEntreprise');
         }
         $vueFormulaireEntreprise=$formulaireEntreprise->createView();
 
 
-        return $this->render('ajoutEntreprise/index.html.twig',['vueFormulaire'=> $vueFormulaireEntreprise,'action'=>"ajouter"]);
+        return $this->render('ajoutEntreprise/index.html.twig',['vueFormulaire'=> $vueFormulaireEntreprise,'action'=> "modifier"]);
     }
 }

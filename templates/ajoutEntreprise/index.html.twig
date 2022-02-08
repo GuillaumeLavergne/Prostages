@@ -1,9 +1,17 @@
 {% extends 'temp.html.twig' %}
 
 {% block title %}
+
+{% if action =="ajouter"%}
 <div class="jumbotron">
         <h1 class="display-4">Formulaire d'ajout d'une entreprise</h1>
 </div>
+{% else %}
+<div class="jumbotron">
+        <h1 class="display-4">Formulaire de modification d'une entreprise</h1>
+</div>
+{% endif %}
+
 {% endblock %}
 
 {% block body %}
