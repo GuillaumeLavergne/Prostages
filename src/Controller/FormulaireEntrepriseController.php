@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Formation;
 use App\Entity\Entreprise;
@@ -23,8 +23,10 @@ class FormulaireEntrepriseController extends AbstractController
      * @Route("/ajoutEntreprise", name="ajoutEntreprise")
      */
 
-    public function index(Request $request, ObjectManager $manager): Response
+    public function index(Request $request, EntityManagerInterface $manager): Response
     {
+
+        $entreprise= New Entreprise();
 
         $formulaireEntreprise= $this->createFormBuilder($entreprise)
         ->add('nom')
@@ -35,7 +37,7 @@ class FormulaireEntrepriseController extends AbstractController
 
         $formulaireEntreprise->handleRequest($request);
 
-        if( $formulaireEntreprise->isSubmittied())
+        if( $formulaireEntreprise->isSubmitted())
         {
             $manager->persist($entreprise);
             $manager->flush();

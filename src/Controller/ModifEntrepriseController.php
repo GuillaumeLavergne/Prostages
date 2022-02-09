@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Formation;
 use App\Entity\Entreprise;
@@ -23,7 +23,7 @@ class ModifEntrepriseController extends AbstractController
      * @Route("/modifEntreprise/{id}", name="modifEntreprise")
      */
 
-    public function index(Request $request, ObjectManager $manager, Entreprise $entreprise): Response
+    public function index(Request $request, EntityManagerInterface $manager, Entreprise $entreprise): Response
     {
         $formulaireEntreprise= $this->createFormBuilder($entreprise)
         ->add('nom')
@@ -34,12 +34,12 @@ class ModifEntrepriseController extends AbstractController
 
         $formulaireEntreprise->handleRequest($request);
 
-        if( $formulaireEntreprise->isSubmittied())
+        if( $formulaireEntreprise->isSubmitted())
         {
             $manager->persist($entreprise);
             $manager->flush();
 
-            return $this -> redirectToRoute('modifEntreprise');
+            return $this -> redirectToRoute('entreprises');
         }
         $vueFormulaireEntreprise=$formulaireEntreprise->createView();
 

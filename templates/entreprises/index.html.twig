@@ -35,10 +35,18 @@
                             <u>Activite :</u> {{entreprise.activite}}
                         </p>
                     </td>
-                    <td align=right>
-                        <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprise.nom}}" >Filtrer !</a>
-                    </td>
+                    <tr>
+                        <td align=right>
+                            <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprise.nom}}" >Filtrer !</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=right>
+                            <a href="http://127.0.0.1:8000/modifEntreprise/{{entreprise.id}}}" >Modifier !</a>
+                        </td>
+                    </tr>
                 </tr>
+
             </tbody>
             </table>
         </div>
