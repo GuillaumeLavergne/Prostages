@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Doctrine\ORM\EntityManagerInterface;
 
+use App\Form\EntrepriseType;
 use App\Entity\Formation;
 use App\Entity\Entreprise;
 
@@ -25,12 +26,8 @@ class ModifEntrepriseController extends AbstractController
 
     public function index(Request $request, EntityManagerInterface $manager, Entreprise $entreprise): Response
     {
-        $formulaireEntreprise= $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('adresse')
-        ->add('url')
-        ->add('activite')
-        ->getForm();
+        $formulaireEntreprise= $this->createForm(EntrepriseType::class,$entreprise);
+
 
         $formulaireEntreprise->handleRequest($request);
 

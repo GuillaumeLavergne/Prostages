@@ -15,35 +15,38 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
 use App\Form\EntrepriseType;
+use App\Form\StageType;
 use App\Entity\Formation;
 use App\Entity\Entreprise;
+use App\Entity\Stage;
 
-class FormulaireEntrepriseController extends AbstractController
+class FormulaireStageController extends AbstractController
 {
     /**
-     * @Route("/ajoutEntreprise", name="ajoutEntreprise")
+     * @Route("/ajoutStage", name="ajoutStage")
      */
 
     public function index(Request $request, EntityManagerInterface $manager): Response
     {
 
-        $entreprise= New Entreprise();
+        $stage= New Stage();
 
-        $formulaireEntreprise= $this->createForm(EntrepriseType::class,$entreprise);
+        $formulaireStage= $this->createForm(StageType::class,$stage);
 
 
-        $formulaireEntreprise->handleRequest($request);
+        $formulaireStage->handleRequest($request);
 
-        if( $formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
+        if( $formulaireStage->isSubmitted() && $formulaireStage->isValid())
         {
-            $manager->persist($entreprise);
+            $manager->persist($stage);
+            $manager->persist($stage->getEntreprise());
             $manager->flush();
 
-            return $this -> redirectToRoute('ajoutEntreprise');
+            return $this -> redirectToRoute('ajoutStage');
         }
-        $vueFormulaireEntreprise=$formulaireEntreprise->createView();
+        $vueformulaireStage=$formulaireStage->createView();
 
 
-        return $this->render('ajoutEntreprise/index.html.twig',['vueFormulaire'=> $vueFormulaireEntreprise,'action'=>"ajouter"]);
+        return $this->render('ajoutStage/index.html.twig',['vueFormulaire'=> $vueformulaireStage,'action'=>"ajouter"]);
     }
 }

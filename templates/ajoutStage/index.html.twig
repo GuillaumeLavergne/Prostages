@@ -1,0 +1,31 @@
+{% extends 'temp.html.twig' %}
+
+{% block title %}
+
+{% if action =="ajouter"%}
+<div class="jumbotron">
+        <h1 class="display-4">Formulaire d'ajout d'un stage</h1>
+</div>
+{% else %}
+<div class="jumbotron">
+        <h1 class="display-4">Formulaire de modification d'un stage</h1>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+{{ form_start(vueFormulaire, {'attr':{"novalidate":"novalidate"}}) }}
+
+{{ form_row(vueFormulaire.titre, {'attr':{'placeholder':"Titre du stage...."}})}}
+
+{{ form_row(vueFormulaire.mission, {'attr':{'placeholder':"Mission du stage...."}})}}
+
+{{ form_row(vueFormulaire.email, {'attr':{'placeholder':"Email de l'entreprise...."}})}}
+
+{{ form_row(vueFormulaire.entreprise)}}
+
+<button type="submit" class="btn btn-dark">Enregistrer</button>
+{{ form_end(vueFormulaire) }}
+{% endblock %}
