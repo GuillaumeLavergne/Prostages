@@ -21,7 +21,7 @@ use App\Entity\Entreprise;
 class FormulaireEntrepriseController extends AbstractController
 {
     /**
-     * @Route("/ajoutEntreprise", name="ajoutEntreprise")
+     * @Route("/admin/ajoutEntreprise", name="ajoutEntreprise")
      */
 
     public function index(Request $request, EntityManagerInterface $manager): Response

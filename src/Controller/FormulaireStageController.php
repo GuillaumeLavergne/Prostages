@@ -23,7 +23,7 @@ use App\Entity\Stage;
 class FormulaireStageController extends AbstractController
 {
     /**
-     * @Route("/ajoutStage", name="ajoutStage")
+     * @Route("/profile/ajoutStage", name="ajoutStage")
      */
 
     public function index(Request $request, EntityManagerInterface $manager): Response
