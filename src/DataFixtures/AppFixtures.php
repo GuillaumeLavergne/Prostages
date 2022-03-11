@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
         $guillaume->setNom("Lavergne");
         $guillaume->setEmail("guillaumelavergne775@gmail.com");
         $guillaume->setRoles(["ROLE_USER" , "ROLE_ADMIN"]);
-        $guillaume->setPassword("$2y$10$0ObcJd5HlGk536QAV60xFe8HMV4HBUzYWpdPYGltGfSSufq4dr/U2");
+        $guillaume->setPassword('$2y$10$TjPyc67NLJwMMaL4rY1aVuM6OFk1n71OXXja4BtS4v0GeLPrVGl8K');
 
         $manager->persist($guillaume);
 
