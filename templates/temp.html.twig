@@ -21,23 +21,26 @@
             <div class="collapse navbar-collapse" id="responsive">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/principal">Liste des stages</a>
+                        <a class="nav-link" href="{{ path('principal')}}">Liste des stages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/entreprises">Liste des entreprises</a>
+                        <a class="nav-link" href="{{ path('entreprises')}}">Liste des entreprises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/formations">Liste des formations</a>
+                        <a class="nav-link" href="{{ path('formation_index')}}">Liste des formations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/admin/ajoutEntreprise">Ajouter une Entreprise</a>
+                        <a class="nav-link" href="{{ path('ajoutEntreprise')}}">Ajouter une Entreprise</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/profile/ajoutStage">Ajouter un Stage</a>
+                        <a class="nav-link" href="{{ path('ajoutStage')}}">Ajouter un Stage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('formation_new')}}">Ajouter une Formation</a>
                     </li>
                     {% if is_granted ('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path('app_logout')}}">Deconnexion</a>
+                        <a class="nav-link" href="{{ path('app_logout')}}">Deconnexion</a>
                     </li>
                     {% else %}
                     <li class="nav-item">

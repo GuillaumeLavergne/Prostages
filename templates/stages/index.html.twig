@@ -15,14 +15,14 @@
 
         <p><u style="font-size:18px">Description :</u> {{stage.Mission}}</p>
         <p><u style="font-size:18px">Email de l'entreprise :</u> {{stage.Email}}</p>
-        <p><u style="font-size:18px">Entreprise proposant le stage :</u > <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprises.nom}}" >{{entreprises.nom}}</a>
+        <p><u style="font-size:18px">Entreprise proposant le stage :</u > <a href="{{ path('stage_entreprise', {'nom': entreprise.nom}) }}" >{{entreprises.nom}}</a>
 
     <p><p>
 
         <p><u style="font-size:18px">Formations autorisées pour le stage :</u></p>
         
         {% for formation in formations %}
-            {{formation.nomLong}} <a href="http://127.0.0.1:8000/stage/formation/{{formation.id}}" >( {{formation.nomCourt}} )</a>
+            {{formation.nomLong}} <a href="{{ path('formation_show', {'id': formation.id}) }}" >( {{formation.nomCourt}} )</a>
             <br>
         {% endfor %}
 

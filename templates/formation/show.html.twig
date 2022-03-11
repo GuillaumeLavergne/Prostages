@@ -1,0 +1,25 @@
+{% extends 'temp.html.twig' %}
+{% block body %}
+    <h1>Formation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>NomCourt</th>
+                <td>{{ formation.nomCourt }}</td>
+            </tr>
+            <tr>
+                <th>NomLong</th>
+                <td>{{ formation.nomLong }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('formation_index') }}">Revenir à la liste</a>
+
+    <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modifier ! </a>
+
+     <a href="{{ path('stage_formation', {'nom': formation.nomLong}) }}">Filtrer ! </a>
+
+    {{ include('formation/_delete_form.html.twig') }}
+{% endblock %}

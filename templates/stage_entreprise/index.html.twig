@@ -24,7 +24,7 @@
             <div class="card-header">{{stage.titre}}</div>
                 <div class="card-body text-secondary">
                     <p class="card-text">Stage proposé par l'entreprise : {{stage.entreprise.nom}}</p>
-                    <a href="http://127.0.0.1:8000/stages/{{stage.id}}" >en savoir plus !</a>
+                    <a href="{{ path('stages', {'id': stage.id}) }}" >en savoir plus !</a>
                 </div>
         </div>
     </div>

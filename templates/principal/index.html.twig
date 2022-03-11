@@ -25,9 +25,8 @@
             <div class="card-header">{{stage.titre}}</div>
                 <div class="card-body text-secondary">
                     <p class="card-text">Stage proposé par l'entreprise : {{stage.entreprise.nom}}</p>
-                    <a href="http://127.0.0.1:8000/stages/{{stage.id}}" >En savoir plus !</a> <br>
-                    <a href="http://127.0.0.1:8000/modifStage/{{stage.id}}" >Modifier !</a> <br>
-                    <a href="http://127.0.0.1:8000/stages/{{stage.id}}"><img src="https://clipground.com/images/croix-rouge-logo-clipart-8.png" width="30px" height="30px"/></a>
+                    <a href="{{ path('stages', {'id': stage.id}) }}" >En savoir plus !</a> <br>
+                    <a href="{{ path('modifStage', {'id': stage.id}) }}" >Modifier !</a> <br>
                 </div>
         </div>
     </div>

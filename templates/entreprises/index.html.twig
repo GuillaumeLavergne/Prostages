@@ -37,12 +37,12 @@
                     </td>
                     <tr>
                         <td align=right>
-                            <a href="http://127.0.0.1:8000/stage/entreprise/{{entreprise.nom}}" >Filtrer !</a>
+                            <a href="{{ path('stage_entreprise', {'nom': entreprise.nom}) }}" >Filtrer !</a>
                         </td>
                     </tr>
                     <tr>
                         <td align=right>
-                            <a href="http://127.0.0.1:8000/modifEntreprise/{{entreprise.id}}}" >Modifier !</a>
+                            <a href="{{ path('modifEntreprise', {'id': entreprise.id}) }}" >Modifier !</a>
                         </td>
                     </tr>
                 </tr>
