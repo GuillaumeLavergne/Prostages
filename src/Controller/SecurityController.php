@@ -7,6 +7,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\User;
+use App\Form\UserType;
+
 class SecurityController extends AbstractController
 {
     /**
@@ -32,5 +43,37 @@ class SecurityController extends AbstractController
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+
+
+    /**
+     * @Route("/inscription", name="inscription")
+     */
+    public function inscription(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder): Response
+    {
+
+        $user= New User();
+
+        $formulaireUser= $this->createForm(UserType::class,$user);
+
+
+        $formulaireUser->handleRequest($request);
+
+        if( $formulaireUser->isSubmitted() && $formulaireUser->isValid())
+        {
+            $user->setRoles(['ROLE_USER']);
+
+            $encodagePassword = $encoder->encodePassword($user,$user->getPassword());
+            $user->setPassword($encodagePassword);
+
+            $manager->persist($user);
+            $manager->flush();
+
+            return $this -> redirectToRoute('app_login');
+        }
+        $vueformulaireUser=$formulaireUser->createView();
+
+
+        return $this->render('inscription/index.html.twig',['vueFormulaire'=> $vueformulaireUser]);
     }
 }
