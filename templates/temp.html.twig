@@ -35,6 +35,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http://127.0.0.1:8000/profile/ajoutStage">Ajouter un Stage</a>
                     </li>
+                    {% if is_granted ('ROLE_USER') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('app_logout')}}">Deconnexion</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
